@@ -8,7 +8,7 @@ Parallax backgrounds
 - very lightweight
 
 ## demo 
-https://rawcdn.githack.com/nuxodin/parax/ac6e7b08e96fac4811ed70256d31d0c753af35f9/tests/demo.html
+https://rawcdn.githack.com/nuxodin/parax-bg/67f879d647467e6a65b08f0e7f8552aa17b740db/tests/demo.html
 
 
 ## ussage:
