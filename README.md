@@ -22,11 +22,11 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.js';
 ```html
 <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.css">
 
-<div class="parax-bg-vp" style="--parax-speed:2">
+<div class="parax-bg-vp">
 
     <h1> Content </h1>
 
-    <div parax-bg style="background-image:url(bg.jpg)"></div>
+    <div parax-bg style="background-image:url(bg.jpg)" style="--parax-bg-offset:50px"></div>
     
 </div>
 ```
