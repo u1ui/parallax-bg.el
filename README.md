@@ -1,19 +1,19 @@
 # parax-bg
 Parallax backgrounds
 
-## features
+## Features
 - fast!
 - easy API
 - works for dynamic added elements
 - very lightweight
 
-## demo 
+## Demo 
 https://rawcdn.githack.com/nuxodin/parax-bg/67f879d647467e6a65b08f0e7f8552aa17b740db/tests/demo.html
 
 
-## ussage:
+## Ussage
 
-Add the attribute "parax-bg" to the element that should be the background of its parent. It will be absolute positionized
+Add the attribute "parax-bg" to the element that should be the background of its parent. It will be absolute positionized and its parent relative.
 
 ```js
 import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.js';
