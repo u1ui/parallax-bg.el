@@ -16,7 +16,7 @@ https://rawcdn.githack.com/nuxodin/parax-bg/67f879d647467e6a65b08f0e7f8552aa17b7
 Add the attribute "parax-bg" to the element that should be the background of its parent. It will be absolute positionized
 
 ```js
-import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax.min.js';
+import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.js';
 ```
 
 ```html
