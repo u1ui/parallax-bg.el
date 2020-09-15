@@ -20,7 +20,7 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.js';
 ```
 
 ```html
-<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.js">
+<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@1.0.0/parax-bg.min.css">
 
 <div class="parax-bg-vp" style="--parax-speed:2">
 
