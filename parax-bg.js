@@ -63,23 +63,24 @@ class Item {
     }
     calcViewportRect(){
         var rect = this.viewport.getBoundingClientRect();
+console.log(this.viewport, rect);
         this.cachedViewportRect = {
             top: rect.top + pageY,
             height: rect.height,
         };
     }
     positionize(){
-		var part = this.partVisible();
-		//if (part < -0.1 || part > 1.1) return;
+	var part = this.partVisible();
+	//if (part < -0.1 || part > 1.1) return;
         var faktor = (part - .5)*2; // -1 bis 1;
         var value = faktor*(this.offset);
         this.bg.style.transform = 'translate3d(0, '+value+'px, 0)';
     }
     partVisible(){
-		var rect = this.cachedViewportRect;
-		var totalPixels = winHeight - rect.height;
-		var activePixel = winHeight - (rect.top + rect.height - pageY);
-		return activePixel / totalPixels; // 0 = element at the bottom, 1 = element at the top
+	var rect = this.cachedViewportRect;
+	var totalPixels = winHeight - rect.height;
+	var activePixel = winHeight - (rect.top + rect.height - pageY);
+	return activePixel / totalPixels; // 0 = element at the bottom, 1 = element at the top
     }
 }
 
