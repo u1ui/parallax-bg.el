@@ -10,7 +10,7 @@ const paraxBg = {
         item.connect();
     },
     remove(element){
-        pool.remove(element);
+        pool.delete(element);
         //pool.size === 0 && removeListeners(); // todo
     },
     positionize(){
