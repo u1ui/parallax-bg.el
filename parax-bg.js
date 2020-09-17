@@ -59,11 +59,11 @@ class Item {
     }
     connect(){
         this.viewport = this.bg.parentNode;
-        this.viewport.classList.add('parax-bg-vp')
+        this.viewport.classList.add('parax-bg-vp');
+	item.calcViewportRect();
     }
     calcViewportRect(){
         var rect = this.viewport.getBoundingClientRect();
-console.log(this.viewport, rect);
         this.cachedViewportRect = {
             top: rect.top + pageY,
             height: rect.height,
