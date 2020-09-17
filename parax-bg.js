@@ -60,7 +60,7 @@ class Item {
     connect(){
         this.viewport = this.bg.parentNode;
         this.viewport.classList.add('parax-bg-vp');
-	item.calcViewportRect();
+	this.calcViewportRect();
     }
     calcViewportRect(){
         var rect = this.viewport.getBoundingClientRect();
