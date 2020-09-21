@@ -58,9 +58,10 @@ class Item {
         this.bg.style.bottom = - offset + 'px';
     }
     connect(){
-        this.viewport = this.bg.parentNode;
-        this.viewport.classList.add('parax-bg-vp');
+	this.viewport = this.bg.parentNode;
+	this.viewport.classList.add('parax-bg-vp');
 	this.calcViewportRect();
+	this.positionize();
     }
     calcViewportRect(){
         var rect = this.viewport.getBoundingClientRect();
@@ -72,9 +73,9 @@ class Item {
     positionize(){
 	var part = this.partVisible();
 	//if (part < -0.1 || part > 1.1) return;
-        var faktor = (part - .5)*2; // -1 bis 1;
-        var value = faktor*(this.offset);
-        this.bg.style.transform = 'translate3d(0, '+value+'px, 0)';
+	var faktor = (part - .5)*2; // -1 bis 1;
+	var value = faktor*(this.offset);
+	this.bg.style.transform = 'translate3d(0, '+value+'px, 0)';
     }
     partVisible(){
 	var rect = this.cachedViewportRect;
