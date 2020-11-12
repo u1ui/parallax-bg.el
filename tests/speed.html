@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width">
+    <link rel=stylesheet href="../parax-bg.css">
+    <script src="../parax-bg.js" type=module></script> <!---->
+    <style>
+        body, html {
+            margin:0;
+            font-family:arial;
+        }
+        h1 {
+            color:#fff;
+            margin:5em 0;
+            text-align:center;
+            font-size:calc(16px + 1.1vmax);
+        }
+        .parax-bg-vp {
+            flex:1 1 100px;
+            overflow:visible;
+            margin:110vh 0;
+            outline:10px solid black;
+        }
+        [parax-bg] {
+            background-image:url(bg.jpg);
+            background-position:50% 50%;
+            background-size:cover;
+            opacity:.9;
+        }
+    </style>
+</head>
+<body>
+
+<div style="display:flex; gap:3rem">
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:3"></div>
+        <h1>speed 3 <br> faktor 2</h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:2"></div>
+        <h1>speed 2 <br> faktor 1 </h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:1"></div>
+        <h1>speed 1 <br> faktor 0</h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:.5"></div>
+        <h1>speed 0.5 <br> faktor -0.5</h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:0"></div>
+        <h1>speed 0 <br> faktor -1</h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:-.5"></div>
+        <h1>speed -0.5 <br> faktor -1.5</h1>
+    </div>
+    <div class=parax-bg-vp>
+        <div parax-bg style="--parax-bg-speed:-1"></div>
+        <h1>speed -1 <br> faktor -2</h1>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import 'https://unpkg.com/wicked-elements@3.1.1/min.js';
 
+// todo resizeObserver
 
 const pool = new Map();
 
@@ -27,70 +28,111 @@ const paraxBg = {
     }
 }
 
+// cache dimensions. Is it worth it?
 let pageY = pageYOffset;
+let winHeight = innerHeight;
+let scrollHeight = document.documentElement.scrollHeight;
 
 function addListeners(){
-	addEventListener('resize',paraxBg.calcViewportRect);
-	addEventListener('DOMContentLoaded',paraxBg.calcViewportRect);
-	addEventListener('load',paraxBg.calcViewportRect);
-	addEventListener('resize', paraxBg.positionize);
+	addEventListener('DOMContentLoaded', paraxBg.calcViewportRect);
+	addEventListener('load', paraxBg.calcViewportRect);
 	addEventListener('load', paraxBg.positionize);
 	document.addEventListener('scroll', function(e){
         pageY = pageYOffset;
         paraxBg.positionize();
     });
+	addEventListener('resize', function(){
+        pageY = pageYOffset;
+        winHeight = innerHeight;
+        scrollHeight = document.documentElement.scrollHeight;
+        paraxBg.calcViewportRect();
+        paraxBg.positionize();
+    });
 }
+
 
 const style = document.createElement('style');
 style.innerHTML =
 '[parax-bg] { position:absolute; top:0; bottom:0; left:0; right:0; z-index:-1; will-change:transform; background-size:cover; } '+
+'[parax-bg] > [parax-bg-visible] { position:absolute; top:0; bottom:0; left:0; right:0; } '+
 '.parax-bg-vp { position:relative; overflow:hidden; z-index:0; transform:translate3d(0,0,0); } '+
 document.head.prepend(style);
 
 class Item {
     constructor(element){
-        let offset = getComputedStyle(element).getPropertyValue('--parax-bg-offset');
-        if (offset === '') offset = 100;
-        else offset = parseInt(offset);
         this.bg = element;
-        this.offset = offset;
-        this.bg.style.top    = - offset + 'px';
-        this.bg.style.bottom = - offset + 'px';
+        const style = getComputedStyle(element);
+        const speed = style.getPropertyValue('--parax-bg-speed');
+        this.speed = speed === '' ? .5 : parseFloat(speed);
     }
     connect(){
-	this.viewport = this.bg.parentNode;
-	this.viewport.classList.add('parax-bg-vp');
-	this.calcViewportRect();
-	this.positionize();
+        this.viewport = this.bg.parentNode;
+        this.viewport.classList.add('parax-bg-vp');
+        this.calcViewportRect();
+        this.positionize();
     }
     calcViewportRect(){
-        var rect = this.viewport.getBoundingClientRect();
-        this.cachedViewportRect = {
-            top: rect.top + pageY,
+        const rect = this.viewport.getBoundingClientRect();
+        this.cachedViewportRect = { // todo: add border-width
+            top:    pageY + rect.top,
+            bottom: pageY + rect.bottom,
             height: rect.height,
+            yCenter: (rect.top + pageY) + rect.height/2,
         };
+
+        // calculate offset if viewport is on top
+        let relevantTop = this.cachedViewportRect.top;
+
+        // if its faster then normal, calculate offset on bottom of viewport
+        if (this.speed > 1) relevantTop += this.cachedViewportRect.height;
+
+        let offset = this.offsetAtPageY(relevantTop);
+        offset = Math.abs(offset);
+
+        // if it moves the opposite, add the viewport height to the offset
+        if (this.speed < 0) offset += (-this.speed * this.cachedViewportRect.height);
+
+        this.bg.style.top    = -offset + 'px';
+        this.bg.style.bottom = -offset + 'px';
+
+        // if the element cannot go further down or up
+        // the [parax-bg-visible] element
+        // the most complicated part of the lib, seems to work well, but it was born by trial and error
+        if (this.speed < 0) {
+            console.warn('parax-bg: parax-bg-visible attribute is not implemented for speed < 0')
+            return;
+        }
+        const visibleEl = this.bg.querySelector('[parax-bg-visible]');
+        if (visibleEl) {
+            let top = 0;
+            let bottom = 0;
+            const offsetAtElTop    = this.offsetAtPageY(this.cachedViewportRect.top);
+            const offsetAtTop      = this.offsetAtPageY(0);
+            const offsetAtElBottom = this.offsetAtPageY(this.cachedViewportRect.bottom - winHeight);
+            const offsetAtBottom   = this.offsetAtPageY(scrollHeight - winHeight);
+            if (this.speed < 1) {
+                top    = Math.min(offsetAtElTop, offsetAtBottom);
+                bottom = Math.max(offsetAtTop, offsetAtElBottom);
+            }
+            if (this.speed > 1) {
+                top    = Math.max(offsetAtTop, -offsetAtElBottom);
+                bottom = Math.min(-offsetAtElTop, offsetAtBottom);
+            }
+            //visibleEl.style.top    = Math.max(offset - top, 0)  + 'px';
+            //visibleEl.style.bottom = Math.max(offset + bottom, 0) + 'px';
+            visibleEl.style.top    = offset - top  + 'px';
+            visibleEl.style.bottom = offset + bottom + 'px';
+        }
+    }
+    offsetAtPageY(pageY){
+        const moved = this.cachedViewportRect.yCenter - (pageY + winHeight/2);
+        return moved*(this.speed-1);
     }
     positionize(){
-	var part = this.partVisible();
-	//if (part < -0.1 || part > 1.1) return;
-	var faktor = (part - .5)*2; // -1 bis 1;
-	var value = faktor*(this.offset);
-	this.bg.style.transform = 'translate3d(0, '+value+'px, 0)';
-    }
-    partVisible(){
-	var rect = this.cachedViewportRect;
-	var totalPixels = winHeight - rect.height;
-	var activePixel = winHeight - (rect.top + rect.height - pageY);
-	return activePixel / totalPixels; // 0 = element at the bottom, 1 = element at the top
+        this.bg.style.transform = 'translate3d(0, '+ this.offsetAtPageY(pageY) +'px, 0)';
     }
 }
 
-
-// cache innerHeight, bringt das was?
-var winHeight = innerHeight;
-addEventListener('resize',function(){
-    winHeight = innerHeight;
-})
 
 
 wickedElements.define(
@@ -104,7 +146,5 @@ wickedElements.define(
         disconnected() {
             paraxBg.remove(this.element);
         },
-        //observedAttributes: ['parax-bg'],
-        //attributeChanged(name, oldValue, newValue) {},
     }
 );

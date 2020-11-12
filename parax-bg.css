@@ -1,10 +1,15 @@
 [parax-bg] {
     position:absolute;
     top:0; bottom:0; left:0; right:0;
-    z-index:-1; background-size:cover;
+    z-index:-1;
+    background-size:cover;
+}
+[parax-bg] > [parax-bg-visible] {
+    position:absolute;
+    top:0; bottom:0; left:0; right:0;
 }
 .parax-bg-vp {
     position:relative;
     overflow:hidden;
-    z-index:0;
+    z-index:0; /* needed? */
 }
