@@ -15,7 +15,7 @@
             text-align:center;
             font-size:calc(16px + 1.1vmax);
         }
-        .parax-bg-vp {
+        [parax-bg-stage] {
             flex:1 1 100px;
             overflow:visible;
             margin:110vh 0;
@@ -35,7 +35,7 @@
 <body>
 
 <div style="display:flex; gap:3rem; overflow:hidden; padding:30px; padding-bottom:100px">
-    <div class=parax-bg-vp style="margin:0 0 auto 0; height:300px">
+    <div parax-bg-stage style="margin:0 0 auto 0; height:300px">
         <div parax-bg style="--parax-bg-speed:.5">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -43,7 +43,7 @@
         </div>
         <h1> on top </h1>
     </div>
-    <div class=parax-bg-vp style="margin:auto 0 0 0; height:300px">
+    <div parax-bg-stage style="margin:auto 0 0 0; height:300px">
         <div parax-bg style="--parax-bg-speed:.5">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -51,7 +51,7 @@
         </div>
         <h1> on bottom </h1>
     </div>
-    <div class=parax-bg-vp style="margin:80vh 0">
+    <div parax-bg-stage style="margin:80vh 0">
         <div parax-bg style="--parax-bg-speed:2">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -59,7 +59,7 @@
         </div>
         <h1>speed 2 <br> faktor 1 </h1>
     </div>
-    <div class=parax-bg-vp style="margin:60vh 0">
+    <div parax-bg-stage style="margin:60vh 0">
         <div parax-bg style="--parax-bg-speed:1">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -67,7 +67,7 @@
         </div>
         <h1>speed 1 <br> faktor 0</h1>
     </div>
-    <div class=parax-bg-vp style="margin:60vh 0">
+    <div parax-bg-stage style="margin:60vh 0">
         <div parax-bg style="--parax-bg-speed:.5">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -75,7 +75,7 @@
         </div>
         <h1>speed 0.5 <br> faktor -0.5</h1>
     </div>
-    <div class=parax-bg-vp>
+    <div parax-bg-stage>
         <div parax-bg style="--parax-bg-speed:0">
             <div parax-bg-visible>
                 the yellow part is visible
@@ -83,7 +83,7 @@
         </div>
         <h1>speed 0 <br> faktor -1</h1>
     </div>
-    <div class=parax-bg-vp style="margin:60vh 0">
+    <div parax-bg-stage style="margin:60vh 0">
         <div parax-bg style="--parax-bg-speed:-1">
             <div parax-bg-visible>
             </div>

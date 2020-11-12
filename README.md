@@ -10,11 +10,11 @@ Highly fantastic Parallax backgrounds
 
 ## Demos 
 - different speeds  
-https://raw.githack.com/nuxodin/parax-bg2/master/tests/speed.html
+https://raw.githack.com/nuxodin/parax-bg/master/tests/speed.html
 - reachable area [bg-parax-visible]  
-https://raw.githack.com/nuxodin/parax-bg2/master/tests/visible.html
+https://raw.githack.com/nuxodin/parax-bg/master/tests/visible.html
 - demo  
-https://raw.githack.com/nuxodin/parax-bg2/master/tests/demo.html
+https://raw.githack.com/nuxodin/parax-bg/master/tests/demo.html
 
 
 
@@ -23,13 +23,13 @@ https://raw.githack.com/nuxodin/parax-bg2/master/tests/demo.html
 Add the attribute "parax-bg" to the element that should be the background of its parent. It will be absolute positionized and its parent relative.
 
 ```js
-import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg2@1.1.0/parax-bg.min.js';
+import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@2.0.0/parax-bg.min.js';
 ```
 
 ```html
-<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/nuxodin/parax-bg2@1.1.0/parax-bg.min.css">
+<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@2.0.0/parax-bg.min.css">
 
-<div class="parax-bg-vp">
+<div parax-bg-stage>
 
     <h1> Content </h1>
 
@@ -42,4 +42,4 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg2@1.1.0/parax-bg.min.js';
 </div>
 ```
 
-The stylesheet and the class "parax-bg-vp" on the parent element (the viewport) are optional, but are highly recommended to add the styles before the script is loaded or when Javascript is disabled or the browser is not supported (IE11).
+The stylesheet and the attribute "parax-bg-stage" on the parent element are optional, but are highly recommended to add the styles before the script is loaded or when Javascript is disabled or the browser is not supported (IE11).
