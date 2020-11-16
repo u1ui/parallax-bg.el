@@ -43,3 +43,8 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax-bg@2.0.0/parax-bg.min.js';
 ```
 
 The stylesheet and the attribute "parax-bg-stage" on the parent element are optional, but are highly recommended to add the styles before the script is loaded or when Javascript is disabled or the browser is not supported (IE11).
+
+
+# Also interesting
+Parallax scrolling Elements (not Backgrounds)
+https://github.com/nuxodin/parax
