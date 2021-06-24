@@ -2,8 +2,8 @@
 <head>
     <meta charset="utf-8">
     <meta name=viewport content="width=device-width">
-    <link rel=stylesheet href="../parax-bg.css">
-    <script src="../parax-bg.js" type=module></script> <!---->
+    <link rel=stylesheet href="../parallax-bg.css">
+    <script src="../parallax-bg.js" type=module></script> <!---->
     <style>
         body, html {
             margin:0;
@@ -15,13 +15,14 @@
             text-align:center;
             font-size:calc(16px + 1.1vmax);
         }
-        [parax-bg-stage] {
+        .u1-parallax-bg-stage {
             flex:1 1 100px;
-            overflow:visible;
             margin:110vh 0;
+            margin:50vh 0;
             outline:10px solid black;
         }
-        [parax-bg] {
+        u1-parallax-bg {
+            xoverflow:visible;
             background-image:url(bg.jpg);
             background-position:50% 50%;
             background-size:cover;
@@ -32,32 +33,32 @@
 <body>
 
 <div style="display:flex; gap:3rem">
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:3"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:3"></u1-parallax-bg>
         <h1>speed 3 <br> faktor 2</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:2"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:2"></u1-parallax-bg>
         <h1>speed 2 <br> faktor 1 </h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:1"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:1"></u1-parallax-bg>
         <h1>speed 1 <br> faktor 0</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:.5"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:.5"></u1-parallax-bg>
         <h1>speed 0.5 <br> faktor -0.5</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:0"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:0"></u1-parallax-bg>
         <h1>speed 0 <br> faktor -1</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:-.5"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:-.5"></u1-parallax-bg>
         <h1>speed -0.5 <br> faktor -1.5</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:-1"></div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:-1"></u1-parallax-bg>
         <h1>speed -1 <br> faktor -2</h1>
     </div>
 </div>

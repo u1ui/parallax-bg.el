@@ -1,0 +1,22 @@
+.u1-parallax-bg-stage {
+    position:relative;
+    /* prevent margin collapse on inner element */
+    display: flow-root;
+    /* needed? else the parallax-element will go behinde everithing with a stackingcontext? */
+    z-index:0;
+}
+@supports not (display: flow-root) { /* zzz if safari */
+    .u1-parallax-bg-stage {
+        padding: .2px;
+    }
+}
+
+u1-parallax-bg {
+    position:absolute;
+    top:0; left:0; right:0;
+    right:-.3px;
+    bottom:-.3px; /* ugly strange 1px space see demo */
+    z-index:-1;
+    will-change:transform;
+    background-size:cover;
+}

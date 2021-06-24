@@ -2,8 +2,8 @@
 <head>
     <meta charset="utf-8">
     <meta name=viewport content="width=device-width">
-    <link rel=stylesheet href="../parax-bg.css">
-    <script src="../parax-bg.js" type=module></script> <!---->
+    <link rel=stylesheet href="../parallax-bg.css">
+    <script src="../parallax-bg.js" type=module></script> <!---->
     <style>
         body, html {
             margin:0;
@@ -15,80 +15,68 @@
             text-align:center;
             font-size:calc(16px + 1.1vmax);
         }
-        [parax-bg-stage] {
+        .u1-parallax-bg-stage {
             flex:1 1 100px;
             overflow:visible;
             margin:110vh 0;
             outline:10px solid black;
         }
-        [parax-bg] {
+        u1-parallax-bg {
             background-image:url(bg.jpg);
             background-position:50% 50%;
             background-size:cover;
             opacity:.9;
+            overflow:visible;
         }
-        [parax-bg-visible] {
+        u1-parallax-bg > div {
             padding:1rem;
             background-color:#ff0a;
         }
     </style>
 </head>
 <body>
-
+<p>Only the yellow part can ever be reached</p>
 <div style="display:flex; gap:3rem; overflow:hidden; padding:30px; padding-bottom:100px">
-    <div parax-bg-stage style="margin:0 0 auto 0; height:300px">
-        <div parax-bg style="--parax-bg-speed:.5">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:0 0 auto 0; height:300px">
+        <u1-parallax-bg style="--parallax-bg-speed:.5">
+            <div></div>
+        </u1-parallax-bg>
         <h1> on top </h1>
     </div>
-    <div parax-bg-stage style="margin:auto 0 0 0; height:300px">
-        <div parax-bg style="--parax-bg-speed:.5">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:auto 0 0 0; height:300px">
+        <u1-parallax-bg style="--parallax-bg-speed:.5">
+            <div></div>
+        </u1-parallax-bg>
         <h1> on bottom </h1>
     </div>
-    <div parax-bg-stage style="margin:80vh 0">
-        <div parax-bg style="--parax-bg-speed:2">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:80vh 0">
+        <u1-parallax-bg style="--parallax-bg-speed:2">
+            <div></div>
+        </u1-parallax-bg>
         <h1>speed 2 <br> faktor 1 </h1>
     </div>
-    <div parax-bg-stage style="margin:60vh 0">
-        <div parax-bg style="--parax-bg-speed:1">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:60vh 0">
+        <u1-parallax-bg style="--parallax-bg-speed:1">
+            <div></div>
+        </u1-parallax-bg>
         <h1>speed 1 <br> faktor 0</h1>
     </div>
-    <div parax-bg-stage style="margin:60vh 0">
-        <div parax-bg style="--parax-bg-speed:.5">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:60vh 0">
+        <u1-parallax-bg style="--parallax-bg-speed:.5">
+            <div></div>
+        </u1-parallax-bg>
         <h1>speed 0.5 <br> faktor -0.5</h1>
     </div>
-    <div parax-bg-stage>
-        <div parax-bg style="--parax-bg-speed:0">
-            <div parax-bg-visible>
-                the yellow part is reachable
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage>
+        <u1-parallax-bg style="--parallax-bg-speed:0">
+            <div></div>
+        </u1-parallax-bg>
         <h1>speed 0 <br> faktor -1</h1>
     </div>
-    <div parax-bg-stage style="margin:60vh 0">
-        <div parax-bg style="--parax-bg-speed:-1">
-            <div parax-bg-visible>
-            </div>
-        </div>
+    <div class=u1-parallax-bg-stage style="margin:60vh 0">
+        <u1-parallax-bg style="--parallax-bg-speed:-1">
+            <div></div>
+        </u1-parallax-bg>
         <h1>
             speed -1 <br> faktor -2
             <div style="color:red">not implemented for speed < 0</div>

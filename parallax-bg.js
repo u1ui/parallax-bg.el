@@ -1,14 +1,12 @@
-import 'https://unpkg.com/wicked-elements@3.1.1/min.js';
-
 // todo resizeObserver?
 
-const pool = new Map();
+const pool = new Set();
 
 const paraxBg = {
-    add(element, item){
-        pool.set(element, item)
+    add(element){
+        pool.add(element)
         pool.size === 1 && addListeners();
-        item.connect();
+        //element.connect();
     },
     remove(element){
         pool.delete(element);
@@ -50,27 +48,78 @@ function addListeners(){
 
 const style = document.createElement('style');
 style.innerHTML =
-    '[parax-bg-stage]   { position:relative; overflow:hidden; z-index:0; transform:translate3d(0,0,0); } '+
-    '[parax-bg]         { position:absolute; top:0; bottom:0; left:0; right:0; z-index:-1; will-change:transform; background-size:cover; } '+
-    '[parax-bg-visible] { position:absolute; top:0; bottom:0; left:0; right:0; background-size:cover; } '
+    '.u1-parallax-bg-stage   { position:relative; } '+
+    'parallax-bg         { position:absolute; top:0; bottom:0; left:0; right:0; z-index:-1; will-change:transform; background-size:cover; } '+
 document.head.prepend(style);
 
-class Item {
-    constructor(element){
-        this.bg = element;
-        const style = getComputedStyle(element);
-        const speed = style.getPropertyValue('--parax-bg-speed');
+
+
+
+
+class ParallaxBg extends HTMLElement {
+    constructor() {
+        super();
+        let shadowRoot = this.attachShadow({mode:'open'});
+
+        shadowRoot.innerHTML = `
+        <style>
+        :host {
+            position:absolute;
+            overflow:hidden;
+            top:0; left:0; right:0; // todo if safari: inset
+            bottom:-.2px;
+            xz-index:-1;
+            xwill-change:transform;
+            xbackground-size:cover;
+        }
+        .mover {
+            position:absolute;
+            top:0; bottom:0; left:0; right:0;
+            z-index:-1;
+            xwill-change:transform;
+            background: inherit;
+        }
+        .visible {
+            display:flex;
+            flex-direction:row;
+            align-items:stretch;
+            justify-content:center;
+            position:absolute;
+            top:0; bottom:0; left:0; right:0;
+        }
+        </style>
+        <div class=mover part=_mover>
+            <slot class=visible></slot>
+        </div>
+        `;
+
+        this.mover   = this.shadowRoot.querySelector('.mover');
+        this.visible = this.shadowRoot.querySelector('.visible');
+
+        const style = getComputedStyle(this);
+        const speed = style.getPropertyValue('--parallax-bg-speed');
         this.speed = speed === '' ? .5 : parseFloat(speed);
     }
-    connect(){
-        let stage = this.bg.closest('[parax-bg-stage]');
+	connectedCallback() {
+        /*
+        let stage = this.closest('.u1-parallax-bg-stage');
         if (!stage) {
-            stage = this.bg.parentNode;
-            stage.setAttribute('parax-bg-stage','');
+            stage = this.parentNode;
+            stage.setAttribute('parallax-bg-stage','');
         }
-        this.stage = stage;
+        */
+        this.stage = this.offsetParent;
+        if (this.stage.tagName === 'BODY') this.stage.style.position = 'relative'; // what can go wrong?
+
+        scrollHeight = document.documentElement.scrollHeight; // todo: little slow
+
         this.layout();
         this.positionize();
+
+        paraxBg.add(this);
+    }
+    disconnectedCallback(){
+        paraxBg.remove(this);
     }
     layout(){
         const rect = this.stage.getBoundingClientRect();
@@ -93,17 +142,18 @@ class Item {
         // if it moves the opposite, add the stage height to the offset
         if (this.speed < 0) offset += (-this.speed * this.stageRect.height);
 
-        this.bg.style.top    = -offset + 'px';
-        this.bg.style.bottom = -offset + 'px';
+        this.mover.style.top    = -offset + 'px';
+        this.mover.style.bottom = -offset + 'px';
 
         // if the element cannot go further down or up
-        // the [parax-bg-visible] element
+        // the [parallax-bg-visible] element
         // the most complicated part of the lib, seems to work well, but it was born by trial and error
         if (this.speed < 0) {
-            console.warn('parax-bg: parax-bg-visible attribute is not implemented for speed < 0');
+            console.warn('parallax-bg: parallax-bg-visible attribute is not implemented for speed < 0');
             return;
         }
-        const visibleEl = this.bg.querySelector('[parax-bg-visible]');
+        //const visibleEl = this.querySelector('[parallax-bg-visible]');
+        const visibleEl = this.visible;
         if (visibleEl) {
             let top = 0;
             let bottom = 0;
@@ -128,20 +178,8 @@ class Item {
         return moved*(this.speed-1);
     }
     positionize(){
-        this.bg.style.transform = 'translate3d(0, '+ this.offsetAtPageY(pageY) +'px, 0)';
+        this.mover.style.transform = 'translate3d(0, '+ this.offsetAtPageY(pageY) +'px, 0)';
     }
 }
 
-wickedElements.define(
-    '[parax-bg]', {
-        init() {
-            this.paraxBg = new Item(this.element);
-		},
-        connected() {
-            paraxBg.add(this.element, this.paraxBg);
-        },
-        disconnected() {
-            paraxBg.remove(this.element);
-        },
-    }
-);
+customElements.define('u1-parallax-bg', ParallaxBg)
