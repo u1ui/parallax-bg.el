@@ -14,7 +14,7 @@
 u1-parallax-bg {
     position:absolute;
     top:0; left:0; right:0;
-    right:-.3px;
+    right:-.4px;
     bottom:-.3px; /* ugly strange 1px space see demo */
     z-index:-1;
     will-change:transform;
