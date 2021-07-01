@@ -9,15 +9,10 @@ Highly fantastic Parallax backgrounds
 - css only fallback
 - light weight
 
-## Demos 
-- different speeds  
-https://raw.githack.com/nuxodin/parallax-bg/master/tests/speed.html
-- reachable area [bg-parax-visible]  
-https://raw.githack.com/nuxodin/parallax-bg/master/tests/visible.html
-- demo  
-https://raw.githack.com/nuxodin/parallax-bg/master/tests/demo.html
-
-
+## Demos
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/speed.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
 
 ## Ussage
 
@@ -48,3 +43,6 @@ The stylesheet and the class `parallax-bg-stage` on the parent element are optio
 Parallax scrolling Elements (not Backgrounds)
 https://github.com/u1ui/parallax.attr
 
+
+## Demo
+## Demo
