@@ -42,7 +42,3 @@ The stylesheet and the class `parallax-bg-stage` on the parent element are optio
 # Also interesting
 Parallax scrolling Elements (not Backgrounds)
 https://github.com/u1ui/parallax.attr
-
-
-## Demo
-## Demo
