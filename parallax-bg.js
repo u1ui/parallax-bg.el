@@ -53,9 +53,6 @@ style.innerHTML =
 document.head.prepend(style);
 
 
-
-
-
 class ParallaxBg extends HTMLElement {
     constructor() {
         super();
