@@ -13,9 +13,9 @@ const paraxBg = {
         //pool.size === 0 && removeListeners(); // todo
     },
     positionize(){
-        requestAnimationFrame(()=>{
+        //requestAnimationFrame(()=>{
             pool.forEach(item=>item.positionize());
-        });
+        //});
     },
     layout(){
         pool.forEach(item=>item.layout());
