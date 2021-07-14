@@ -35,7 +35,9 @@ function addListeners(){
     });
 	document.addEventListener('scroll', ()=>{
         pageY = pageYOffset;
-        paraxBg.positionize();
+        requestAnimationFrame(()=>{ // better!
+            paraxBg.positionize();
+        })
     });
 	addEventListener('resize', ()=>{
         pageY = pageYOffset;
