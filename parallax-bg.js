@@ -37,6 +37,11 @@ function addListeners(){
         pageY = pageYOffset;
         requestAnimationFrame(()=>paraxBg.positionize()) // better!
     });
+	addEventListener('wheel', ()=>{ // for firefox
+        pageY = pageYOffset;
+        requestAnimationFrame(()=>paraxBg.positionize())
+    });
+
 	addEventListener('resize', ()=>{
         pageY = pageYOffset;
         winHeight = innerHeight;
