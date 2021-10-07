@@ -24,7 +24,8 @@ const paraxBg = {
 
 // cache dimensions. Is it worth it?
 let pageY = pageYOffset;
-let winHeight = document.documentElement.clientHeight; // was innerHeight // better this?: https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
+//let winHeight = document.documentElement.clientHeight; // was innerHeight // better this?: https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
+let winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 let scrollHeight = document.documentElement.scrollHeight;
 
 function addListeners(){
@@ -44,7 +45,8 @@ function addListeners(){
 
 	addEventListener('resize', ()=>{
         pageY = pageYOffset;
-        winHeight = document.documentElement.clientHeight;  // was innerHeight
+        //winHeight = document.documentElement.clientHeight;  // was innerHeight
+        winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
         scrollHeight = document.documentElement.scrollHeight;
         paraxBg.layout();
         paraxBg.positionize();
