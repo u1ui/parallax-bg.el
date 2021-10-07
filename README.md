@@ -19,11 +19,11 @@ https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html
 Create a element "u1-parallax-bg". It will be the parallax background of the closest element with the class `u1-parallax-bg-stage` or the closest positioned element (offsetParent).
 
 ```js
-import 'https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.3.3/parallax-bg.min.js';
+import 'https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.3.4/parallax-bg.min.js';
 ```
 
 ```html
-<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.3.3/parallax-bg.min.css">
+<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.3.4/parallax-bg.min.css">
 
 <div class=u1-parallax-bg-stage>
 
