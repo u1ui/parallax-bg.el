@@ -29,7 +29,7 @@ import 'https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.3.6/parallax-bg.min.js
 
     <h1> Content </h1>
 
-    <u1-parallax-bg style="background-image:url(bg.jpg)" style="--parallax-bg-speed:.7">
+    <u1-parallax-bg style="--parallax-bg-speed:.7">
         <img src="myCat.jpg" style="position:absolute; inset:0">
     </u1-parallax-bg>
     
