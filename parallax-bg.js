@@ -58,7 +58,7 @@ function addListeners(){
         paraxBg.layout();
         paraxBg.positionize();
     })
-    rs.observe(document.documentElement);
+    rs.observe(document.body);
 }
 
 const style = document.createElement('style');
