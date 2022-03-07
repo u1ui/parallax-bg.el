@@ -23,10 +23,15 @@ const paraxBg = {
 }
 
 // cache dimensions. Is it worth it?
-let pageY = pageYOffset;
-//let winHeight = document.documentElement.clientHeight; // was innerHeight // better this?: https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
-let winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-let scrollHeight = document.documentElement.scrollHeight;
+let pageY;
+let winHeight;
+let scrollHeight;
+function setVPDimensions(){
+    pageY = pageYOffset;
+    winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // was innerHeight, better this?: https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
+    scrollHeight = document.documentElement.scrollHeight;
+}
+setVPDimensions();
 
 function addListeners(){
 	addEventListener('DOMContentLoaded', paraxBg.layout);
@@ -44,13 +49,16 @@ function addListeners(){
     });
 
 	addEventListener('resize', ()=>{
-        pageY = pageYOffset;
-        //winHeight = document.documentElement.clientHeight;  // was innerHeight
-        winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-        scrollHeight = document.documentElement.scrollHeight;
+        setVPDimensions();
         paraxBg.layout();
         paraxBg.positionize();
     });
+    const rs = new ResizeObserver(entries => {
+        setVPDimensions();
+        paraxBg.layout();
+        paraxBg.positionize();
+    })
+    rs.observe(document.documentElement);
 }
 
 const style = document.createElement('style');
