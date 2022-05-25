@@ -27,7 +27,7 @@ let pageY;
 let winHeight;
 let scrollHeight;
 function setVPDimensions(){
-    pageY = pageYOffset;
+    pageY = scrollY;
     winHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // was innerHeight, better this?: https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
     scrollHeight = document.documentElement.scrollHeight;
 }
@@ -40,11 +40,11 @@ function addListeners(){
         paraxBg.positionize();
     });
 	document.addEventListener('scroll', ()=>{
-        pageY = pageYOffset;
+        pageY = scrollY;
         requestAnimationFrame(()=>paraxBg.positionize()) // better!
     });
 	addEventListener('wheel', ()=>{ // for firefox
-        pageY = pageYOffset;
+        pageY = scrollY;
         requestAnimationFrame(()=>paraxBg.positionize())
     });
 
