@@ -11,6 +11,7 @@ Highly fantastic Parallax backgrounds
 
 ## Demos
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
 
