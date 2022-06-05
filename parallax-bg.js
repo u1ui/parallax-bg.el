@@ -63,8 +63,8 @@ function addListeners(){
 
 const style = document.createElement('style');
 style.innerHTML =
-    '.u1-parallax-bg-stage   { position:relative; } '+
-    'parallax-bg         { position:absolute; top:0; bottom:0; left:0; right:0; z-index:-1; will-change:transform; background-size:cover; } '+
+    '.u1-parallax-bg-stage { position:relative; } '+
+    'parallax-bg { position:absolute; top:0; bottom:0; left:0; right:0; z-index:-1; will-change:transform; background-size:cover; } '+
 document.head.prepend(style);
 
 
