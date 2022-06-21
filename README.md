@@ -10,13 +10,6 @@ Parallax backgrounds
 - css only fallback
 - light weight
 
-## Demos
-
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
-
 ## Ussage
 
 ```html
@@ -28,17 +21,24 @@ https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html
 </div>
 ```
 
-## Also interesting
-
-Parallax scrolling Elements (not Backgrounds)
-https://github.com/u1ui/parallax.attr
-
 ## Install
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.css" rel=stylesheet>
 <script src="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.js" type=module>
 ```
+
+## Demos
+
+[demo.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html)  
+[minimal.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html)  
+[test.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html)  
+[visible.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html)  
+
+## Also interesting
+
+Parallax scrolling Elements (not Backgrounds)
+https://github.com/u1ui/parallax.attr
 
 ## About
 
