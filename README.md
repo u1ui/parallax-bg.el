@@ -1,7 +1,8 @@
-# parallax-bg
-Highly fantastic Parallax backgrounds
+# &lt;u1-parallax-bg&gt; - element
+Parallax backgrounds
 
 ## Features
+
 - fast!
 - easy, declarative API
 - works for dynamic added elements
@@ -10,36 +11,44 @@ Highly fantastic Parallax backgrounds
 - light weight
 
 ## Demos
+
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html
+
+## Ussage
+
+```html
+<div class=u1-parallax-bg-stage style="height:10rem">
+    <u1-parallax-bg>
+        <div style="background: linear-gradient(#ffa, #aff)">TEST</div>
+        <div style="background: linear-gradient(#afa, #aaa)">TEST</div>
+    </u1-parallax-bg>
+</div>
+```
+
+## Also interesting
+
+Parallax scrolling Elements (not Backgrounds)
+https://github.com/u1ui/parallax.attr
+
+## Install
+
+```html
+<link href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.css" rel=stylesheet>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.js" type=module>
+```
+
+## Demo
+
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
 
-## Ussage
+## About
 
-Create a element "u1-parallax-bg". It will be the parallax background of the closest element with the class `u1-parallax-bg-stage` or the closest positioned element (offsetParent).
+- MIT License, Copyright (c) 2022 <u1> (like all repositories in this organization) <br>
+- Suggestions, ideas, finding bugs and making pull requests make us very happy. ♥
 
-```js
-import 'https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@x.x.x/parallax-bg.min.js';
-```
-
-```html
-<link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@x.x.x/parallax-bg.min.css">
-
-<div class=u1-parallax-bg-stage>
-
-    <h1> Content </h1>
-
-    <u1-parallax-bg style="--parallax-bg-speed:.7">
-        <img src="myCat.jpg" style="position:absolute; inset:0">
-    </u1-parallax-bg>
-    
-</div>
-```
-
-The stylesheet and the class `parallax-bg-stage` on the parent element are optional, but are highly recommended to add the styles before the script is loaded or when Javascript is disabled or the browser is not supported (IE11).
-
-
-# Also interesting
-Parallax scrolling Elements (not Backgrounds)
-https://github.com/u1ui/parallax.attr
