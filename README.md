@@ -15,7 +15,7 @@ Parallax backgrounds
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
 https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html
+https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
 
 ## Ussage
 
@@ -39,13 +39,6 @@ https://github.com/u1ui/parallax.attr
 <link href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.css" rel=stylesheet>
 <script src="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.js" type=module>
 ```
-
-## Demo
-
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html  
-https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html  
 
 ## About
 
