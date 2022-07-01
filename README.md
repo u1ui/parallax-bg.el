@@ -21,6 +21,17 @@ Parallax backgrounds
 </div>
 ```
 
+```css
+u1-parallax-bg {
+    --parallax-bg-speed:.7
+}
+u1-parallax-bg div {
+    ;
+    display:grid;
+    place-items: center;
+}
+```
+
 ## Install
 
 ```html
@@ -30,10 +41,10 @@ Parallax backgrounds
 
 ## Demos
 
-[demo.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/demo.html)  
-[minimal.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/minimal.html)  
-[test.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/test.html)  
-[visible.html](https://raw.githack.com/u1ui/parallax-bg.el/main/tests/visible.html)  
+[demo.html](http://gcdn.li/u1ui/parallax-bg.el@main/tests/demo.html)  
+[minimal.html](http://gcdn.li/u1ui/parallax-bg.el@main/tests/minimal.html)  
+[test.html](http://gcdn.li/u1ui/parallax-bg.el@main/tests/test.html)  
+[visible.html](http://gcdn.li/u1ui/parallax-bg.el@main/tests/visible.html)  
 
 ## Also interesting
 
