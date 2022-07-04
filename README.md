@@ -26,7 +26,6 @@ u1-parallax-bg {
     --parallax-bg-speed:.7
 }
 u1-parallax-bg div {
-    ;
     display:grid;
     place-items: center;
 }
