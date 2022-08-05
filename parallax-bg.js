@@ -88,7 +88,7 @@ class ParallaxBg extends HTMLElement {
             position:absolute;
             top:0; bottom:0; left:0; right:0;
             z-index:-1;
-            xwill-change:transform;
+            will-change:transform;
             background: inherit;
         }
         .visible {
@@ -104,6 +104,7 @@ class ParallaxBg extends HTMLElement {
             <slot class=visible></slot>
         </div>
         `;
+        // .mover {will-change:transform} brings a lot, but the budget is easily exceeded... we should only do this if in the visible area.
 
         this.mover   = this.shadowRoot.querySelector('.mover');
         this.visible = this.shadowRoot.querySelector('.visible');
