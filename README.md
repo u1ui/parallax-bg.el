@@ -34,8 +34,8 @@ u1-parallax-bg div {
 ## Install
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.css" rel=stylesheet>
-<script src="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.0/parallax-bg.min.js" type=module>
+<link href="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.1/parallax-bg.min.css" rel=stylesheet>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/parallax-bg.el@3.5.1/parallax-bg.min.js" type=module>
 ```
 
 ## Demos
